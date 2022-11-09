@@ -18,6 +18,12 @@
   "author": "fidel2702@gmail.com",
   "license": "ISC",
   "devDependencies": {
+    "dotenv-webpack": "^8.0.1",
     "gh-pages": "^4.0.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "html-webpack-plugin": "^5.5.0"
   }
 }
