@@ -4,17 +4,17 @@ import {
   deleteTask,
   getTask,
   updateTask,
-} from './firebase.js';
+} from './scripts/firebase.js';
 //Es un observer que chequea cuando la autenticación cambia de estado
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js';
-import { auth } from './firebase.js';
-import './signupForm.js';
-import './logout.js';
-import './signinForm.js';
-import './googleLogin.js';
-import './facebookLogin.js';
-import './githubLogin.js';
-import { loginCheck } from './loginCheck.js';
+import { auth } from './scripts/firebase.js';
+import './scripts/signupForm.js';
+import './scripts/logout.js';
+import './scripts/signinForm.js';
+import './scripts/googleLogin.js';
+import './scripts/facebookLogin.js';
+import './scripts/githubLogin.js';
+import { loginCheck } from './scripts/loginCheck.js';
 
 const taskForm = document.getElementById('task-form');
 const taskContainer = document.getElementById('tasks-container');
