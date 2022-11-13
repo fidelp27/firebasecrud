@@ -8,7 +8,19 @@
         width: 100% !important;
     }
 
+    .welcome-text {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
 
+    .welcome-text h1 {
+        font-size: 70px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        text-shadow: 0 4px 4px black;
+        text-align: center;
+    }
 }
 
 @media (min-width: 613px) {
@@ -22,6 +34,14 @@
     #tasks-container .card {
         width: 244px !important;
     }
+
+    .welcome-text h1 {
+        font-size: 80px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        text-shadow: 0 4px 4px black;
+
+    }
 }
 
 @media (min-width: 1200px) {
@@ -32,4 +52,6 @@
     #tasks-container .card {
         width: 244px !important;
     }
+
+
 }
