@@ -9,6 +9,7 @@ import {
   getDocs,
   onSnapshot,
   doc,
+  setDoc,
   deleteDoc,
   getDoc,
   updateDoc,
@@ -70,21 +71,7 @@ const analytics = getAnalytics(app);
     10.2) updateDoc recibe el id y un objeto (data) con la nueva información 
  */
 
-const db = getFirestore();
-
-export const saveTask = (title, description) =>
-  addDoc(collection(db, 'tasks'), { title: title, description: description });
-
-//export const getTasks = () => getDocs(collection(db, 'tasks'));
-
-export const onGetTasks = (callback) =>
-  onSnapshot(collection(db, 'tasks'), callback);
-
-export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
-
-export const getTask = (id) => getDoc(doc(db, 'tasks', id));
-
-export const updateTask = (id, data) => updateDoc(doc(db, 'tasks', id), data);
+export const db = getFirestore();
 
 //Authentication code
 /*
@@ -92,4 +79,26 @@ export const updateTask = (id, data) => updateDoc(doc(db, 'tasks', id), data);
 2) app es la inicialización de firebase
 */
 export const auth = getAuth(app);
-console.log(auth);
+
+export const saveTask = async (userId, title, description) => {
+  await addDoc(collection(db, 'user', userId, 'tasks'), {
+    title: title,
+    description: description,
+  });
+};
+/*export const getTasks = () => {
+  getDocs(collection(db, 'user', 'fuJD2c6aJFOY8HWO9g5j3gA7vs83', 'tasks'));
+  // return tasks.then((tasks) => tasks.forEach((elem) => elem.data()));
+};*/
+
+export const onGetTasks = async (userId, callback) => {
+  await onSnapshot(collection(db, 'user', userId, 'tasks'), callback);
+};
+export const deleteTask = (userId, taskId) =>
+  deleteDoc(doc(db, 'user', userId, 'tasks', taskId));
+
+export const getTask = (userId, taskId) =>
+  getDoc(doc(db, 'user', userId, 'tasks', taskId));
+
+export const updateTask = (userId, taskId, data) =>
+  updateDoc(doc(db, 'user', userId, 'tasks', taskId), data);
