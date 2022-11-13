@@ -37,10 +37,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (user) {
       containerFormAddTask.classList.remove('d-none');
       containerFormAddTask.classList.add('d-flex');
-      containerNotes.classList.remove('d-none');
-      containerNotes.classList.add('d-block');
-      welcomeMessage.classList.remove('d-flex');
-      welcomeMessage.classList.add('d-none');
+      taskContainer.classList.remove('d-none');
+      taskContainer.classList.add('d-block');
+
       navUser.classList.remove('d-none');
       navUser.classList.add('d-flex');
       navUserName.textContent = `Welcome ${
@@ -64,7 +63,9 @@ window.addEventListener('DOMContentLoaded', async () => {
             'rounded',
             'container-notes'
           );
-          cardContainer.style.width = '20rem';
+          taskContainer.style.width = '60rem';
+          cardContainer.style.opacity = '1';
+          cardContainer.style.width = '300px';
           const cardBody = document.createElement('div');
           cardBody.classList.add('card-body', 'mt-2');
           const title = document.createElement('h3');
@@ -114,8 +115,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     } else {
       containerFormAddTask.classList.remove('d-flex');
       containerFormAddTask.classList.add('d-none');
-      containerNotes.classList.remove('d-block');
-      containerNotes.classList.add('d-none');
+      taskContainer.classList.remove('d-block');
+      taskContainer.classList.add('d-none');
       welcomeMessage.classList.remove('d-none');
       welcomeMessage.classList.add('d-flex');
       navUser.classList.remove('d-flex');

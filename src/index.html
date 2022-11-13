@@ -16,10 +16,19 @@
       href="https://bootswatch.com/5/yeti/bootstrap.min.css"
     />
   </head>
-  <body class="bg-dark vh-100">
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <body
+    class="d-flex flex-column bg-image vh-100"
+    style="
+      background-image: url('https://i.imgur.com/xdZzB5P.jpg');
+      height: 100vh;
+    "
+  >
+    <nav
+      class="navbar navbar-expand-lg bg-dark navbar-dark d-flex align-content-center p-0"
+      style="opacity: 0.6"
+    >
       <div class="container p-3">
-        <p class="navbar-brand" href="#">NotesApp</p>
+        <p class="navbar-brand fs-3 fw-bold" href="#">NotesApp</p>
 
         <button
           class="navbar-toggler"
@@ -34,7 +43,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto fw-bold text-white-50 p-0">
             <li class="nav-item">
               <a
                 class="nav-link loggedout"
@@ -64,17 +73,39 @@
       </div>
     </nav>
     <div
-      class="container d-flex flex-column justify-content-center align-items-center mt-5 text-white-50"
+      class="container d-flex flex-column justify-content-center align-items-center mt-5 text-white-50 position-relative"
       id="welcomeMessage"
     >
-      <h1>Bienvenidos a NotesApp</h1>
-      <p>
-        Por ahora todos podrán acceder a las mismas notas, pronto podrán tener
-        notas propias en sus cuentas
-      </p>
+      <div class="welcome-text text-white" style="height: 80vh; opacity: 0.9">
+        <h1
+          style="
+            position: 'absolute';
+            top: 50;
+            font-size: 90px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 4px black;
+          "
+        >
+          Welcome to NotesApp
+        </h1>
+        <p
+          style="
+            font-size: 30px;
+            font-weight: bolder;
+            text-align: center;
+            text-shadow: 0 4px 4px black;
+          "
+        >
+          Take, edit and delete notes. Never forget your best ideas
+        </p>
+      </div>
     </div>
-    <div class="row container m-4 form-add-task d-none">
-      <div class="col-md-6 mb-sm-3">
+    <div
+      class="row container m-4 form-add-task d-none vw-100"
+      style="width: 100vw; justify-content: center; opacity: 0.8; color: black"
+    >
+      <div class="col-lg-9 col-md-6 mb-sm-3">
         <div class="card border-info">
           <div class="card-body">
             <h1 class="h4">Add task</h1>
@@ -103,7 +134,11 @@
         </div>
       </div>
 
-      <div class="col-md-6 d-flex flex-wrap d-none" id="tasks-container"></div>
+      <div
+        class="col-md-6 d-flex flex-wrap d-none"
+        id="tasks-container"
+        style="max-width: 1000px"
+      ></div>
     </div>
 
     <!-- Sign in Modal -->
