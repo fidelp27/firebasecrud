@@ -19,10 +19,10 @@ google_button.addEventListener('click', async () => {
   const provider = new GoogleAuthProvider();
   try {
     const credentials = await signInWithPopup(auth, provider);
-    console.log(credentials);
     hideModal('signinModal');
     showMessage('Bienvenido ' + credentials.user.displayName, 'success');
   } catch (error) {
-    showMessage(error.message, warning);
+    console.log(error);
+    showMessage(error.message, 'warning');
   }
 });
