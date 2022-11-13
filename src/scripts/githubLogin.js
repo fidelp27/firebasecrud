@@ -14,7 +14,6 @@ import { hideModal } from './hideModal.js';
     3) Se cierra el modal y se da mensaje de bienvenida
     */
 
-const welcomeMessage = document.querySelector('#welcomeMessage');
 const github_button = document.querySelector('#login-github');
 github_button.addEventListener('click', async () => {
   const provider = new GithubAuthProvider();
@@ -22,8 +21,6 @@ github_button.addEventListener('click', async () => {
     const credentials = await signInWithPopup(auth, provider);
     hideModal('signinModal');
     showMessage('Bienvenido ' + credentials.user.displayName, 'success');
-    welcomeMessage.classList.remove('d-flex');
-    welcomeMessage.classList.add('d-none');
   } catch (error) {
     if (error.code === 'auth/account-exists-with-different-credential') {
       showMessage('Ya te has autenticado con otra plataforma', 'warning');

@@ -1,0 +1,35 @@
+@media (max-width: 612px) {
+    #tasks-container {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    #tasks-container .card {
+        width: 100% !important;
+    }
+
+
+}
+
+@media (min-width: 613px) {
+    #tasks-container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        width: 100%;
+    }
+
+    #tasks-container .card {
+        width: 244px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    #tasks-container {
+        width: 900px;
+    }
+
+    #tasks-container .card {
+        width: 244px !important;
+    }
+}

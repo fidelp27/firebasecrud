@@ -13,7 +13,7 @@ import { hideModal } from './hideModal.js';
 2) se instancia  el provider de GoogleAuthProvider
 3) Se cierra el modal y se da mensaje de bienvenida
 */
-const welcomeMessage = document.querySelector('#welcomeMessage');
+
 const google_button = document.querySelector('#login-gmail');
 google_button.addEventListener('click', async () => {
   const provider = new GoogleAuthProvider();
@@ -21,8 +21,6 @@ google_button.addEventListener('click', async () => {
     const credentials = await signInWithPopup(auth, provider);
     hideModal('signinModal');
     showMessage('Bienvenido ' + credentials.user.displayName, 'success');
-    welcomeMessage.classList.remove('d-flex');
-    welcomeMessage.classList.add('d-none');
   } catch (error) {
     console.log(error);
     showMessage(error.message, 'warning');

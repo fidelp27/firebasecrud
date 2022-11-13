@@ -29,6 +29,13 @@ let editStatus = false;
 let id = '';
 let userId = '';
 
+const goTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
+
 window.addEventListener('DOMContentLoaded', async () => {
   taskContainer.innerHTML = '';
 
@@ -39,7 +46,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       containerFormAddTask.classList.add('d-flex');
       taskContainer.classList.remove('d-none');
       taskContainer.classList.add('d-block');
-
+      welcomeMessage.classList.remove('d-flex');
+      welcomeMessage.classList.add('d-none');
       navUser.classList.remove('d-none');
       navUser.classList.add('d-flex');
       navUserName.textContent = `Welcome ${
@@ -60,12 +68,13 @@ window.addEventListener('DOMContentLoaded', async () => {
             'border-primary',
             'mb-2',
             'me-2',
-            'rounded',
             'container-notes'
           );
-          taskContainer.style.width = '60rem';
+          taskContainer.style.maxWidth = '100vw';
+          taskContainer.classList.add('d-block', 'd-md-flex');
           cardContainer.style.opacity = '1';
-          cardContainer.style.width = '300px';
+          cardContainer.style.width = '250px';
+
           const cardBody = document.createElement('div');
           cardBody.classList.add('card-body', 'mt-2');
           const title = document.createElement('h3');
@@ -107,8 +116,8 @@ window.addEventListener('DOMContentLoaded', async () => {
             taskForm['task-description'].value = task.description;
             editStatus = true;
             id = doc.id;
-
             taskForm['btn-task-save'].innerText = 'Update';
+            goTop();
           });
         });
       });

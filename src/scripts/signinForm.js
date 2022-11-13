@@ -2,7 +2,6 @@ import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9
 import { auth } from './firebase.js';
 import { showMessage } from './showMessage.js';
 
-const welcomeMessage = document.querySelector('#welcomeMessage');
 const signinForm = document.querySelector('#login-form');
 signinForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -12,8 +11,7 @@ signinForm.addEventListener('submit', async (e) => {
     const credentials = await signInWithEmailAndPassword(auth, email, password);
     const signinModal = document.querySelector('#signinModal');
     const modal = bootstrap.Modal.getInstance(signinModal);
-    welcomeMessage.classList.remove('d-flex');
-    welcomeMessage.classList.add('d-none');
+
     showMessage('Bienvenido ' + credentials.user.email, 'success');
     modal.hide();
   } catch (error) {
